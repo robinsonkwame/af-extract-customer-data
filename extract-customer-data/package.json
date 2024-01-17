@@ -1,0 +1,30 @@
+{
+  "name": "monorepo",
+  "version": "1.0.0",
+  "description": "A monorepo for a Node.js and Python project",
+  "main": "cypress/integration/test.js",
+  "scripts": {
+    "test": "cypress run"
+  },
+  "dependencies": {
+    "cypress": "^8.7.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/monorepo.git"
+  },
+  "keywords": [
+    "node",
+    "python",
+    "cypress",
+    "docker",
+    "prisma"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yourusername/monorepo/issues"
+  },
+  "homepage": "https://github.com/yourusername/monorepo#readme"
+}

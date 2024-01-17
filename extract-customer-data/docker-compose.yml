@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  node:
+    image: node:18
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - CYPRESS_USER_PLATFORM_URL=${CYPRESS_USER_PLATFORM_URL}
+      - CYPRESS_CREDENTIALS_PATH=${CYPRESS_CREDENTIALS_PATH}
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ["npm", "run", "cypress:run"]
+
+  python:
+    image: python:3.8
+    environment:
+      - PYTHONUNBUFFERED=${PYTHONUNBUFFERED}
+      - PYTHONPATH=${PYTHONPATH}
+      - CUSTOMER_DATA_PATH=${CUSTOMER_DATA_PATH}
+      - POLYLINE_PATH=${POLYLINE_PATH}
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ["python", "download.py", "&&", "python", "geocoding.py", "&&", "python", "client.py"]
+
+  prisma:
+    image: prismagraphql/prisma:1.34
+    restart: always
+    ports:
+      - "4466:4466"
+    environment:
+      - PRISMA_ENDPOINT=${PRISMA_ENDPOINT}
+      - PRISMA_SECRET=${PRISMA_SECRET}
+    volumes:
+      - .:/app
