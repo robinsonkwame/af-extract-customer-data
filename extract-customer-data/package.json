@@ -1,30 +1,22 @@
 {
-  "name": "monorepo",
+  "name": "af-extract-customer-data",
   "version": "1.0.0",
-  "description": "A monorepo for a Node.js and Python project",
-  "main": "cypress/integration/test.js",
+  "description": "A docker based mono service that uses Cypress to export or copy customer related data from disparate platforms used by Artisanal Futures (AF) related users.",
+  "main": "index.js",
   "scripts": {
-    "test": "cypress run"
   },
-  "dependencies": {
-    "cypress": "^8.7.0"
-  },
-  "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/monorepo.git"
+    "url": "git+https://github.com/robinsonkwame/af-extract-customer-data.git"
   },
-  "keywords": [
-    "node",
-    "python",
-    "cypress",
-    "docker",
-    "prisma"
-  ],
-  "author": "Your Name <your.email@example.com>",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yourusername/monorepo/issues"
+    "url": "https://github.com/robinsonkwame/af-extract-customer-data/issues"
   },
-  "homepage": "https://github.com/yourusername/monorepo#readme"
+  "homepage": "https://github.com/robinsonkwame/af-extract-customer-data#readme",
+  "devDependencies": {
+    "cypress": "^13.6.3"
+  }
 }
