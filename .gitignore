@@ -1,6 +1,8 @@
 # Cypress and Javascript related
 node_modules
-cypress_cache_folder
+cypress_ cache_folder
+# the local cypress install
+cypress 
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
