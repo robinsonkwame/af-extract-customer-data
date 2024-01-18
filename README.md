@@ -22,5 +22,6 @@ npm run testrunner # launches Cypress Studio
 ```
 # Use Cypress Studio, for example, see [here](https://docs.cypress.io/guides/references/cypress-studio#Step-3---Interact-with-the-Application)
 # ... to point and click and download any customer data within the platform
+# ... it may also helpful to manually add urls that you know contain locations to navigate to, such as `cy.get('a[href*="orders"]').click()``
 ```
-Note: that these script will contain the user's credentials, it is important to keep the container in a security controlled environment.
+**Note**: that these script will contain the user's credentials, it is important to keep the container in a security controlled environment.
