@@ -1,17 +1,41 @@
-# Use a Cypress provided image with browsers
-FROM cypress/browsers:node-20.10.0-chrome-118.0.5993.88-1-ff-118.0.2-edge-118.0.2088.46-1
+# see Mac M1 issue https://github.com/docker/for-mac/issues/6030
+FROM --platform=linux/amd64  debian:buster-slim
 
-# Set the working directory
+# Set non-interactive installation mode
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Install required packages
+RUN apt-get update -qqy && apt-get -qqy install \
+    wget \
+    gnupg \
+    ca-certificates \
+    curl \
+    --no-install-recommends
+
+# Install Chrome
+ARG CHROME_VERSION="google-chrome-stable"
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+    echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list && \
+    apt-get update -qqy && apt-get -qqy install ${CHROME_VERSION} && \
+    rm /etc/apt/sources.list.d/google-chrome.list
+
+# Install smaller Node.js and npm from NodeSource
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs
+
+# Install XVFB
+RUN apt-get -qqy install xvfb
+
+# Clean up to reduce image size
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Set the display environment variable for XVFB
+ENV DISPLAY=:99
+
 WORKDIR /e2e
 
-# Copy the project files into the container
-COPY cypress.config.js /e2e
-COPY cypress /e2e/cypress
-COPY package.json /e2e/package.json
-
-# Install npm dependencies, including Cypress
+COPY package.json /e2e/
 RUN npm install
 
-# Run Cypress tests
-# This can be overridden in the docker run command if needed
+# Set the entrypoint or CMD as required
 CMD ["npx", "cypress", "run", "--browser", "chrome"]
