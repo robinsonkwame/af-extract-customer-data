@@ -1,5 +1,3 @@
-// cypress/integration/start_here.cy.js
-
 describe('Customer Data Extraction', () => {
 
   const blockedDomains = [
@@ -18,7 +16,21 @@ describe('Customer Data Extraction', () => {
     });
   });
 
+  it('should navigate to various platforms, enter credentials, export customer data, either to an email address or by writing to disk\n\nIMPORTANT:\n\nMANUALLY ADD CY.WAIT(Cypress.env(\'waitForEnv\'));// at end of script\n', () => {
+    // Move this to end of script so that browser stays open
+    // long enough for browser to download file at end of test
+    //
+    // cy.wait(Cypress.env('waitForEnv))
+  });
 
-  it('should navigate to various platforms, enter credentials, export customer data, either to an email address or by writing to disk', () => {
-  })
+  afterEach(() => {
+    // NOW WE CHECK THAT ANY FILE WAS DOWNLOADED 
+    const downloadsFolder = Cypress.config('downloadsFolder')
+    const mask = `${downloadsFolder}/*.csv`
+
+    cy.task('findFiles', mask).then((foundCustomers) => {
+      cy.log(`found download ${foundCustomers}`)
+      expect(foundCustomers).to.be.a('string')
+    })
+  });
 })

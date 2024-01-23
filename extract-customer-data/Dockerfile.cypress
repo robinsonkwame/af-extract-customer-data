@@ -34,8 +34,15 @@ ENV DISPLAY=:99
 
 WORKDIR /e2e
 
+COPY cypress cypress
+COPY cypress.config.js .
+COPY entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+ENV CYPRESS_CACHE_FOLDER=cypress
 COPY package.json /e2e/
 RUN npm install
 
 # Set the entrypoint or CMD as required
-CMD ["npx", "cypress", "run", "--browser", "chrome"]
+#CMD ["npx", "cypress", "run", "--browser", "chrome"]
+CMD ["bash"]
