@@ -16,20 +16,17 @@ describe('Customer Data Extraction', () => {
     });
   });
 
-  it('should navigate to various platforms, enter credentials, export customer data, either to an email address or by writing to disk\n\nIMPORTANT:\n\nMANUALLY ADD CY.WAIT(Cypress.env(\'waitForEnv\'));// at end of script\n', () => {
-    // Move this to end of script so that browser stays open
-    // long enough for browser to download file at end of test
+  it('should navigate to various platforms, enter credentials, export customer data, either to an email address or by writing to disk\n\nIMPORTANT:\n\nMANUALLY ADD cy.wait(Cypress.env(\'waitForEnv\'));// at end of script\n', () => {
+    // PLACE THIS WAIT TO THE END OF THE SCRIPT
     //
-    // cy.wait(Cypress.env('waitForEnv))
+    // cy.wait(Cypress.env('waitForEnv'))
   });
 
   afterEach(() => {
-    // NOW WE CHECK THAT ANY FILE WAS DOWNLOADED 
+    // Check that download actually happened
     const downloadsFolder = Cypress.config('downloadsFolder')
     const mask = `${downloadsFolder}/*.csv`
-
     cy.task('findFiles', mask).then((foundCustomers) => {
-      cy.log(`found download ${foundCustomers}`)
       expect(foundCustomers).to.be.a('string')
     })
   });

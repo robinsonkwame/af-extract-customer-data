@@ -4,6 +4,8 @@
   "description": "A docker based mono service that uses Cypress to export or copy customer related data from disparate platforms used by Artisanal Futures (AF) related users.",
   "main": "index.js",
   "scripts": {
+    "testrunner": "CYPRESS_CACHE_FOLDER=./cypress_cache_folder cypress open --browser chrome",
+    "run": "npx cypress run"
   },
   "repository": {
     "type": "git",
@@ -18,5 +20,8 @@
   "homepage": "https://github.com/robinsonkwame/af-extract-customer-data#readme",
   "devDependencies": {
     "cypress": "^13.6.3"
+  },
+  "dependencies": {
+    "globby": "^14.0.0"
   }
 }

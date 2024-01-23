@@ -3,7 +3,7 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   e2e: {
     downloadsFolder: 'cypress/downloads',
-    trashAssetsBeforeRuns: false,
+    trashAssetsBeforeRuns: true,
     experimentalStudio: true,
     specPattern: './extract-customer-data/cypress/integration/start_here.cy.js',
     setupNodeEvents (on, config) {

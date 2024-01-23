@@ -1,48 +1,18 @@
-# see Mac M1 issue https://github.com/docker/for-mac/issues/6030
-FROM --platform=linux/amd64  debian:buster-slim
-
-# Set non-interactive installation mode
-ARG DEBIAN_FRONTEND=noninteractive
-
-# Install required packages
-RUN apt-get update -qqy && apt-get -qqy install \
-    wget \
-    gnupg \
-    ca-certificates \
-    curl \
-    --no-install-recommends
-
-# Install Chrome
-ARG CHROME_VERSION="google-chrome-stable"
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
-    echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list && \
-    apt-get update -qqy && apt-get -qqy install ${CHROME_VERSION} && \
-    rm /etc/apt/sources.list.d/google-chrome.list
-
-# Install smaller Node.js and npm from NodeSource
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
-    apt-get install -y nodejs
-
-# Install XVFB
-RUN apt-get -qqy install xvfb
-
-# Clean up to reduce image size
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Set the display environment variable for XVFB
-ENV DISPLAY=:99
+# Use the official Cypress base image
+FROM cypress/included:13.6.3
 
 WORKDIR /e2e
 
-COPY cypress cypress
-COPY cypress.config.js .
-COPY entrypoint.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/entrypoint.sh
-
-ENV CYPRESS_CACHE_FOLDER=cypress
+COPY cypress/ /e2e/cypress/
+COPY cypress.config.js /e2e/
 COPY package.json /e2e/
-RUN npm install
+COPY package-lock.json /e2e/
 
-# Set the entrypoint or CMD as required
-#CMD ["npx", "cypress", "run", "--browser", "chrome"]
-CMD ["bash"]
+# Install NPM dependencies, avoid running post-install scripts
+RUN npm ci --ignore-scripts
+
+# Verify Cypress has been installed correctly.
+RUN npx cypress verify
+
+# Command to run tests
+CMD ["npx", "cypress", "run"]
