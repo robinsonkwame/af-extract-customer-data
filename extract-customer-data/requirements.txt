@@ -1,5 +1,0 @@
-requests==2.26.0
-shapely==1.7.1
-prisma==1.0.0
-json==2.0.9
-os==0.1.1
