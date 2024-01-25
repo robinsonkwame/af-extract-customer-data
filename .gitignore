@@ -4,6 +4,9 @@ cypress_ cache_folder
 # the local cypress install
 cypress 
 
+
+venv/
+
 # Mac stuff
 .DS_Store
 

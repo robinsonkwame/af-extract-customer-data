@@ -1,0 +1,16 @@
+Customer A,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+99999999,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,Order,Date,Order Status,Payment Status,Payment Method,Product,Vendor,Internal Product ID,Quantity,Package Name,Product Subtotal,Product Sales Tax,Order Discount,Store Credit Applied,Fulfillment Fee,Fulfillment Tax,Total,Fulfillment Date,Fulfillment Type,Fulfillment Name,Fulfillment Address,Order Placed Time,Order Note,Backoffice Product Tags,Fulfillment Street Address,Fulfillment City,Fulfillment State,Fulfillment ZIP Code,Fulfillment Country,Payment Fee,Payment Fee Amount,Payment Fee Tax
+,2496249,14 Jul 2023,CLOSED,PAID,Debit/Credit Card,Sunday Dinner Admission,,2,1.000,Donation,25.00,1.50,,,,,26.50,,pickup,Pick Up at the Farm (East),"144 Young Street, Detroit, MI 48205, United States",09:58 AM,,,144 Young Street,Detroit,MI,48205,United States,,0.00,0.00
+Grand Total,,,,,,,,,,,25.00,1.50,0.00,0.00,0.00,0.00,26.50,,,,,,,,,,,,,,0.00,0.00
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Customer B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1321Grobs!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+(999) 999-9999,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,Order,Date,Order Status,Payment Status,Payment Method,Product,Vendor,Internal Product ID,Quantity,Package Name,Product Subtotal,Product Sales Tax,Order Discount,Store Credit Applied,Fulfillment Fee,Fulfillment Tax,Total,Fulfillment Date,Fulfillment Type,Fulfillment Name,Fulfillment Address,Order Placed Time,Order Note,Backoffice Product Tags,Fulfillment Street Address,Fulfillment City,Fulfillment State,Fulfillment ZIP Code,Fulfillment Country,Payment Fee,Payment Fee Amount,Payment Fee Tax
+,2593575,13 Sep 2023,CLOSED,PAID,Debit/Credit Card,Cucumber,,,1,pound,2.00,0.00,,,,,2.00,12 Sep 2023,pickup,Pick Up at the Farm (East),"144 Young Street, Detroit, MI 48205, United States",05:25 PM,,,144 Young Street,Detroit,MI,48205,United States,,0.00,0.00
+,2593575,13 Sep 2023,CLOSED,PAID,Debit/Credit Card,Farmer's Pick Produce Box,,,1.000,Box,50.00,0.00,,,,,50.00,12 Sep 2023,pickup,Pick Up at the Farm (East),"144 Young Street, Detroit, MI 48205, United States",05:25 PM,,,144 Young Street,Detroit,MI,48205,United States,,0.00,0.00
+Grand Total,,,,,,,,,,,52.00,0.00,0.00,0.00,0.00,0.00,52.00,,,,,,,,,,,,,,0.00,0.00
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
