@@ -3,9 +3,16 @@ A docker based mono service that uses Cypress to export or copy customer related
 
 ## Setup Containerized Customer Extraction
 
+### Step 0: Clone this repository
+```
+git clone https://github.com/robinsonkwame/af-extract-customer-data.git
+```
 ### Step 1: Install and Launch Cypress Studio
 
+**Note**: The script that you are modifying will contain the user's credentials, it is important to keep the container in a security controlled environment.
+
 ```
+cd af-extract-customer-data
 export CYPRESS_CACHE_FOLDER=./cypress_cache_folder && npm install
 npm run testrunner # launches Cypress Studio
 ```
@@ -25,3 +32,8 @@ npm run testrunner # launches Cypress Studio
 # ... it may also helpful to manually add urls that you know contain locations to navigate to, such as `cy.get('a[href*="orders"]').click()``
 ```
 **Note**: that these script will contain the user's credentials, it is important to keep the container in a security controlled environment.
+
+### Step 4: Uncomment the cy.wait() call at the end fo the script.
+```
+# ... uncomment the cy.wait() at end of script; this allows the browser to wait for the async download call to complete
+```
