@@ -5,7 +5,6 @@
 current_directory=$(pwd)
 
 # Append '/run.sh' to the path
-
 SCRIPT_PATH="${current_directory}/run.sh"
 # Optional argument for the script, if needed
 OPTIONAL_ARG="$1"

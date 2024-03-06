@@ -36,4 +36,10 @@ npm run testrunner # launches Cypress Studio
 ### Step 4: Uncomment the cy.wait() call at the end fo the script.
 ```
 # ... uncomment the cy.wait() at end of script; this allows the browser to wait for the async download call to complete
+# and save the start_here.cy.js script!
+```
+
+### Step 5: Edit and run ./setup_cron.sh to fetch new customers daily
+```
+./setup_cron.sh # now we'll run this script once a day!
 ```
