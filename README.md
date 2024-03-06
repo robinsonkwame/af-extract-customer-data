@@ -41,5 +41,5 @@ npm run testrunner # launches Cypress Studio
 
 ### Step 5: Edit and run ./setup_cron.sh to fetch new customers daily
 ```
-./setup_cron.sh # now we'll run this script once a day!
+./setup_cron.sh # you can pass a path to move too, as well; now we'll run this script once a day!
 ```
